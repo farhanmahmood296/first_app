@@ -1,0 +1,37 @@
+<html>
+<head>
+  <title>Brain Cloud</title>
+</head>
+<script src="braincloud/optimized/brainCloudClient.min.js"></script>    
+<script src="braincloud/md5.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    
+    brainCloudClient.initialize("10347", "71e0de36-8511-43c6-8343-376d42b62726", "1.0.0");
+    
+
+    brainCloudClient.authentication.authenticateEmailPassword("farhan296@hotmail.com","farhan2013",true,function(result) {
+      console.log(JSON.stringify(result));
+    });
+
+    brainCloudClient.gamification.readXpLevelsMetaData(function(result){
+    	console.log(result);
+    });
+
+    /*brainCloudClient.globalApp.readProperties(function(result) {
+      console.log(JSON.stringify(result));
+    });*/
+	brainCloudClient.getSocialLeaderboard(function(result){
+		console.log(JSON.stringify(result));
+	});
+    /*brainCloudClient.socialLeaderboard.postScore("1", 100,"", function(result){
+    	console.log("LeaderBoard Socre : ", result);
+    });*/
+   
+});
+</script>
+<body>
+
+</body>
+</html>
